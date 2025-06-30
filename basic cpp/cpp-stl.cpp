@@ -17,7 +17,7 @@ void arrays() {
 
     // operations on arrays
     array1[2] -= 3;
-    cout << arey [2];
+    cout << array1 [2];
 
     // 2D arrays
     int array1[3][2];
@@ -229,7 +229,7 @@ void sets(){
     int cnt = st.count(2);   // either returns 1 or 0
 
     it = st.upper_bound(2);   // TO DO
-    it = st.lower_bound(3;   // TO DO
+    it = st.lower_bound(3);   // TO DO
 }
 
 
@@ -255,7 +255,6 @@ void multisets(){
 // unique but not sorted
 void unordered_set(){
     // everyhing is same except lower bound and upper bound does not workl
-    unordered_set<int> ust;
 }
 
 
@@ -278,8 +277,7 @@ void maps(){
         cout << it.first.first << it.second << endl;
     }
 
-    it = mpp.find(3)    // gives iterator at key 3
-    cout << *(it).first;
+    auto it = mpp.find(3);    // gives iterator at key 3
 
     // if we find something thats not in the map it gives mpp.end()
     // lower bound, upper bound, erase, size, swap, empty, are same as above
@@ -326,7 +324,7 @@ void algorithms(){
     int i = 6;
     cout<< __builtin_popcount(i);   // number of set bits, like 6 is 110 in binary so it returns 2
 
-    long long j = 68323846
+    long long j = 68323846;
     cout << __builtin_popcountll(j);   // number of set bits
 
     //int maxi = *(max_element(a, a+n);)

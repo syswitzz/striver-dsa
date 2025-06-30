@@ -6,7 +6,6 @@ using namespace std;
 void counts(int n){
 
     // method 1
-    
     int count1 = 0;
 
     while (n>0) {
@@ -15,7 +14,6 @@ void counts(int n){
     }
 
     // method 2
-
     int count2 = int (log10(n) + 1);
     cout<< count2;
 }
@@ -62,7 +60,6 @@ int armstrongs(int n){
 void divisions(int n){
 
     // method 1  -  O(N)
-
     vector<int> arr1;
 
     for (int i=1; i<=n; i++){
@@ -70,7 +67,6 @@ void divisions(int n){
     }
 
     // method 2  - my attempt
-
     vector<int> arr2;
 
     int divisor = 1;
@@ -89,7 +85,6 @@ void divisions(int n){
     sort(arr2.begin(), arr2.end());
 
     // method 3  -  striver method  ||  O(sqrt(N)
-
     vector<int> arr3;
 
     for (int i = 1; i*i<=n; i++) {
@@ -107,12 +102,18 @@ void divisions(int n){
 }
 
 
+//  GCD / HCF
+int HCF(int n1, int n2) {
+    
+    // O(min(n1, n2))
+    int hcf=1;
 
-int main(){
-    while (true){
-        int n;
-        cin >> n;
-        divisions(n);
+    for (int i=min(n1, n2); i>1; i--){
+        if(n1%i==0 && n2%i==0){
+            hcf = i;
+            break;
+        }
     }
-    return 0;
+    return hcf;
 }
+
