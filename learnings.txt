@@ -22,11 +22,16 @@ LIST, VECTOR
 // list: doubly-linked list (non-contiguous).
 
 TIME COMPLEXITY
+// whenever theres division happening the time complexity will be in logarithmic
 // push - log(n)
 // top - O(1)
 // pop - log(n)
 // insert - log(n)
 // erase - log(n)
+
+EUCLIDEAN ALGORITHM
+// GCD of (n1, n2) = GCD of (n1-n2, n2) where n1>n2
+
 
 
 /*int main() {
