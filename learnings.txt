@@ -23,14 +23,19 @@ LIST, VECTOR
 
 TIME COMPLEXITY
 // whenever theres division happening the time complexity will be in logarithmic
-// push - log(n)
+// storing/fetching in (map) - log(N) in [all] cases 
+// storing/fetching in (unordered_map) - O(1) in [ok] cases and O(N) in [worst] cases | where (N) is number of elements
 // top - O(1)
-// pop - log(n)
-// insert - log(n)
-// erase - log(n)
+// pop, push, insert, erase - log(n)
 
 EUCLIDEAN ALGORITHM
 // GCD of (n1, n2) = GCD of (n1-n2, n2) where n1>n2
+
+ARRAY LIMITS  (learned in hashing video)
+// 1e6 for integer inside int main
+// 1e7 for integer in global
+// 1e7 for boolean inside int main
+// 1e8 for boolean in global
 
 
 

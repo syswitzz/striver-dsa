@@ -295,7 +295,8 @@ void multimaps(){
 // UNORDERED MAP  |  O(1) but rarely O(N)
 // Randomised and Unique
 void unordered_maps(){
-
+    // in (unordered_map) key cannot be pair or vector 
+    // but in (map) it can be any data type
 }
 
 
