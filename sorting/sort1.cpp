@@ -3,6 +3,7 @@ using namespace std;
 
 
 // SELECTION SORT  |  O(n^2) - worst/ average/ best
+// Insertion Sort builds the sorted list one item at a time by inserting each item into its correct position
 void selectionSort(int arr[], int n){
     for (int i=0; i<=n-2; i++){    // to sort array of 5 elements we need only 4 swaps
 
@@ -19,6 +20,7 @@ void selectionSort(int arr[], int n){
 
 
 // BUBBLE SORT  |  O(n^2)  - worst/avg  |  O(n) - best
+// 
 void bubbleSort(int arr[], int n){
 
     for(int i=n-1; i>=1; i--){    // to sort array of 5 elements we need only 4 loops 
