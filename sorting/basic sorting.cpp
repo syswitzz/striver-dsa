@@ -3,7 +3,7 @@ using namespace std;
 
 
 // SELECTION SORT  |  O(n^2) - worst/ average/ best
-// Insertion Sort builds the sorted list one item at a time by inserting each item into its correct position
+// Selection Sort finds the smallest element and places it at the beginning, repeating for the rest
 void selectionSort(int arr[], int n){
     for (int i=0; i<=n-2; i++){    // to sort array of 5 elements we need only 4 swaps
 
@@ -20,7 +20,7 @@ void selectionSort(int arr[], int n){
 
 
 // BUBBLE SORT  |  O(n^2)  - worst/avg  |  O(n) - best
-// 
+// Bubble Sort repeatedly swaps adjacent elements if they’re in the wrong order.
 void bubbleSort(int arr[], int n){
 
     for(int i=n-1; i>=1; i--){    // to sort array of 5 elements we need only 4 loops 
@@ -40,6 +40,7 @@ void bubbleSort(int arr[], int n){
 
 
 // INSERTION SORT  |  O(n^2)  - worst/avg  |  O(n) - best
+// Insertion Sort builds the sorted list one item at a time by inserting each item into its correct position.
 void insertionSort(int arr[], int n){
 
     for (int i=0; i<=n-1; i++){

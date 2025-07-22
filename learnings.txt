@@ -38,6 +38,9 @@ ARRAY LIMITS  (learned in hashing video)
 // 1e8 for boolean in global
 
 
+RUNTIME ERROR
+// when youre trying to access and element which is not present
+
 
 /*int main() {
     int day = 4;
