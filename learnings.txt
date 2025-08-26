@@ -23,6 +23,7 @@ LIST, VECTOR
 
 TIME COMPLEXITY
 // whenever theres division happening the time complexity will be in logarithmic
+// whenever there is  x/2, n/2 etc then time complexity will be O(log(n))
 // storing/fetching in (map) - log(N) in [all] cases 
 // storing/fetching in (unordered_map) - O(1) in [ok] cases and O(N) in [worst] cases | where (N) is number of elements
 // top - O(1)

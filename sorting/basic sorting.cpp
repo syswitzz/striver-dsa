@@ -20,7 +20,7 @@ void selectionSort(int arr[], int n){
 
 
 // BUBBLE SORT  |  O(n^2)  - worst/avg  |  O(n) - best
-// Bubble Sort repeatedly swaps adjacent elements if they’re in the wrong order.
+// Bubble Sort repeatedly swaps adjacent elements if they’re in the wrong order. the highest number will bubble its way to the right and so on.
 void bubbleSort(int arr[], int n){
 
     for(int i=n-1; i>=1; i--){    // to sort array of 5 elements we need only 4 loops 
