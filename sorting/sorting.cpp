@@ -45,20 +45,21 @@ void mergeSort(vector<int> &arr, int low, int high){
 // QUICK SORT  | best, avg TC - O(nlogn), worst TC - O(n^2)  |  worst SC - O(logn) 
 // Quick sort is a sorting algorithm that picks a pivot element, partitions the array into two halves such that elements less than the pivot go to the left and elements greater go to the right, then recursively sorts the partitions. It is generally faster than merge sort in practice due to better cache performance and in-place sorting.
 int quick(vector<int> &arr, int low, int high){
-    int pivot = low;
+    int pivotValue = arr[low];
     int i = low;
     int j = high;
 
-    while(i<j){
-        while(arr[i]<arr[pivot] && i<=high-1){
+    while(true){
+        while(arr[i]<=pivotValue && i<=high-1){
             i++;
         }
-        while(arr[j]>arr[pivot] && j>=low+1){
+        while(arr[j]>pivotValue && j>=low+1){
             j--;
         }
-        if(i<j) swap(arr[i], arr[j]);
+        if(i>=j) break;
+        swap(arr[i], arr[j]);
     }
-    swap(arr[pivot], arr[j]);
+    swap(arr[low], arr[j]);
     return j;
 }
 
@@ -72,7 +73,7 @@ void quickSort(vector<int> &arr, int low, int high){
 }
 
 int main(){
-    vector<int> arr = {8, 0, 1, 7,6,9,0, 4, 2};
+    vector<int> arr = {8, 0, 1,0, 7,6,9, 4, 2};
     quickSort(arr, 0, arr.size()-1);
 
     for(auto it : arr) cout << it << ", ";
