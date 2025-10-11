@@ -37,41 +37,11 @@ ARRAY LIMITS  (learned in hashing video)
 // 1e7 for integer in global
 // 1e7 for boolean inside int main
 // 1e8 for boolean in global
-
+// accesssing an array by address is not possible because we can not predict the address of first arr[0]. but address of arr[1] is add. of arr[0]+1.
 
 RUNTIME ERROR
 // when youre trying to access and element which is not present
 
-
-/*int main() {
-    int day = 4;
-
-    switch (day) {
-        case 1:
-            cout << "Monday";
-            break;
-        case 2:
-            cout << "Tuesday";
-            break;
-        case 3:
-            cout << "Wednesday";
-            break;
-        case 4:
-            cout << "Thursday";
-            break;
-        case 5:
-            cout << "Friday";
-            break;
-        case 6:
-            cout << "Saturday";
-            break;
-        case 7:
-            cout << "Sunday";
-            break;
-        default:
-            cout << "Invalid";
-    }
-
-    return 0;
-}
-*/
+INTERVIEW TIPS
+// brute -> better -> optimal
+// do not start with the best solution even if you know, start with normal and then keep optimizing
