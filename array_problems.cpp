@@ -102,22 +102,93 @@ void rightRotateElementbyD_optimal(vector<int> &arr, int d){
 }
 
 
-// MOVE ZEROES TO THE END 
+// MOVE ZEROES TO THE END  |  TC - O(N)  |  SC - O(1)
 void moveZeroes(vector<int>& arr) {
-    int j = 0; // index to place the next non-zero element
+    int i = 0;
 
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] != 0) {
+    for(int j=0; j<arr.size(); j++){
+        if (arr[j]!=0){
             swap(arr[i], arr[j]);
-            j++;
+            i++;
         }
     }
 }
 
 
+// INTERSECTION OF TWO ARRAYS  |  TC - O(N1+N2)  |  SC - O(1) for solving
+vector<int> intersectionOf(vector<int> arr1, vector<int> arr2){
+    // two pointers method
+    int n1 = arr1.size();
+    int n2 = arr2.size();
+    vector<int> intersectionArray;
+
+    int i = 0;
+    int j = 0;
+
+    while(i<n1 && j<n2){
+        if(arr1[i]=arr2[j]){
+            intersectionArray.push_back(arr1[i]);
+            i++;
+            j++;
+        }
+        else if(arr1[i]<arr2[j]){
+            i++;
+        }
+        else{
+            j++;
+        }
+
+    }
+    return intersectionArray;
+}
+
+
+// UNION OF TWO ARRAYS  |  TC - O(N1+N2)  |  SC - O(1) for solving but O(N1+N2) to return the result
+vector<int> unionOf(vector<int> arr1, vector<int> arr2){
+    // two pointers method
+    int n1 = arr1.size();
+    int n2 = arr2.size();
+    vector<int> unionArray;
+
+    int i = 0;
+    int j = 0;
+
+    while(i<n1 && j<n2){
+        if(arr1[i]<=arr2[j]){
+            if(unionArray.size()==0 || unionArray.back()!=arr1[i]){
+                unionArray.push_back(arr1[i]);
+            }
+            i++;
+        }
+        else{
+            if(unionArray.size()==0 || unionArray.back()!=arr2[j]){
+                unionArray.push_back(arr2[j]);
+            }
+            j++;
+        }   
+    }
+    while(i<n1){
+        if(unionArray.size()==0 || unionArray.back()!=arr1[i]){
+            unionArray.push_back(arr1[i]);
+        }
+        i++;
+    }
+    while(j<n2){
+        if(unionArray.size()==0 || unionArray.back()!=arr2[j]){
+            unionArray.push_back(arr2[j]);
+        }
+        j++;
+    }
+    return unionArray;
+}
+
+
+
+
 int main(){
-    vector<int> arr = {0,2,0,4,0, 0,6,7};
-    moveZeroes(arr);
+    vector<int> arr1 = {0,1,2,3,7, 7,7};
+    vector<int> arr2 = {0, 1, 2, 3};
+    vector<int> arr = unionOf(arr1, arr2);
 
     for(auto it: arr){
         cout<< it << ", ";
