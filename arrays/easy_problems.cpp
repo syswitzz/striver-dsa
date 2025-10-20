@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 #include<iostream>
+#include <algorithm>  //for max function
 using namespace std;
 
 int sLargest(vector<int> arr){
@@ -183,15 +184,115 @@ vector<int> unionOf(vector<int> arr1, vector<int> arr2){
 }
 
 
+// MISSING NUMBER (better)  |  TC - O(2n)  |  SC - O(n)
+int missingNumber(vector<int> arr, int n){
+    int hashh[n+1]= {0};
 
+    for(int i=0; i<n-1; i++){
+        hashh[arr[i]] = 1; 
+    }
+
+    for(int j=1; j<n+1; j++){
+        if(hashh[j]==0){
+            return j;
+        }
+    }
+    return 0;
+}
+
+
+// MISSING NUMBER (best)  |  TC - O(n)  |  SC - O(1)
+int missingNumberSum(vector<int> arr, int n){
+    
+    int sum = n*(n+1)/2;    // can not store very big data thats why xor is better
+    int sumarr = 0;
+
+    for(int i=0; i<arr.size(); i++){
+        sumarr+= arr[i];
+    }
+
+    int missingNum = sum-sumarr;
+    return missingNum;
+}
+
+// MISSING NUMBER (optimal)  |  TC - O(n)  |  SC - O(1)
+int missingNumberXOR(vector<int> arr, int n){
+    int XOR1 = 0;
+    int XOR2 = 0;
+
+    for(int i=0; i<n-1; i++){
+        XOR2 = XOR2^arr[i];
+        XOR1 = XOR1^(i+1);
+    }
+    XOR1 = XOR1^n;
+    return XOR1^XOR2;
+}
+
+// MAX CONSECUTIVE 1s  |  TC - O(n)  |  SC - O(1)
+int maxConsecutive(vector<int> arr){
+    int count = 0;
+    int maxi = 0;
+
+    for(int i=0; i<arr.size(); i++){
+        if(arr[i]==1){
+            count++;
+            maxi=std::max(maxi, count);
+        }
+        else count=0;
+    }
+    return maxi;
+}
+
+
+// FIND THE NUMBER THAT APPEARS ONCE  (brute)
+int onceNumber(vector<int> arr){
+    int maxi=0;
+    for(int i=0; i<arr.size(); i++){
+        if(arr[i]>maxi){
+            maxi = arr[i];
+        }
+    }
+
+    int hashh[maxi] = {0};
+
+    for(int j=0; j<arr.size(); j++){
+        hashh[arr[j]]++;
+    }
+
+    for(int k=0; k<arr.size(); k++){
+        if(hashh[arr[k]]==1) return k;
+    }
+    return 0;
+}
+
+// FIND THE NUMBER THAT APPEARS ONCE  (better)  |  TC - O(nlogn+n/2+1)  |  SC - O(n/2 +1)
+int onceNumberMap(vector<int> arr){
+    map<long long, int> mapp;
+
+    for(int i=0; i<arr.size(); i++){    // n *logn
+        mapp[arr[i]]++;
+    }
+    
+    for(auto it: mapp){                 // n/2 + 1
+        if(it.second==1) return it.first;
+    }
+    return 0;
+}
+
+
+// FIND THE NUMBER THAT APPEARS ONCE  (optimal)  |  TC - O(n)  |  SC - O(1)
+int onceNumberXOR(vector<int> arr){
+    int XOR = 0;
+
+    for(int i=0; i<arr.size(); i++){
+        XOR = XOR^arr[i];
+    }
+    return XOR;
+}
 
 int main(){
-    vector<int> arr1 = {0,1,2,3,7, 7,7};
-    vector<int> arr2 = {0, 1, 2, 3};
-    vector<int> arr = unionOf(arr1, arr2);
+    vector<int> arr1 = {2,2,3,3,4,4,1,5,1};
 
-    for(auto it: arr){
-        cout<< it << ", ";
-    }
+    cout << onceNumberXOR(arr1);
     return 0;
 }
