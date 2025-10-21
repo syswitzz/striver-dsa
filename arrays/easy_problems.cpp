@@ -200,7 +200,6 @@ int missingNumber(vector<int> arr, int n){
     return 0;
 }
 
-
 // MISSING NUMBER (best)  |  TC - O(n)  |  SC - O(1)
 int missingNumberSum(vector<int> arr, int n){
     
@@ -227,6 +226,7 @@ int missingNumberXOR(vector<int> arr, int n){
     XOR1 = XOR1^n;
     return XOR1^XOR2;
 }
+
 
 // MAX CONSECUTIVE 1s  |  TC - O(n)  |  SC - O(1)
 int maxConsecutive(vector<int> arr){
@@ -280,7 +280,7 @@ int onceNumberMap(vector<int> arr){
 }
 
 
-// FIND THE NUMBER THAT APPEARS ONCE  (optimal)  |  TC - O(n)  |  SC - O(1)
+// FIND THE NUMBER THAT APPEARS ONCE OTHER TWICE  (optimal)  |  TC - O(n)  |  SC - O(1)
 int onceNumberXOR(vector<int> arr){
     int XOR = 0;
 
@@ -290,9 +290,76 @@ int onceNumberXOR(vector<int> arr){
     return XOR;
 }
 
-int main(){
-    vector<int> arr1 = {2,2,3,3,4,4,1,5,1};
 
-    cout << onceNumberXOR(arr1);
+// SUBARRAY - contigious part of array
+// LONGEST SUBARRAY WITH SUM K (brute)  |  TC - O(n^2)  |  SC - O(n)
+int longestSubarrayBrute(vector<int> arr, int k){
+    int maxlen =0;
+    for(int i=0; i<arr.size(); i++){
+        int sum = 0;
+        for(int j=i; j<arr.size(); j++){
+            sum+=arr[j];
+            if(sum==k){
+                maxlen = max(maxlen, j-i+1);
+            }
+        }
+    }
+    return maxlen;
+}
+
+// LONGEST SUBARRAY WITH SUM K (better)  |  TC - O(n)  |  SC - O(n)
+// Optimal if array includes negatives
+int longestSubarrayNegative(vector<int> arr, int k){
+    map<long long, int> hashmap;
+
+    int prefixsum =0;
+    int maxlen =0;
+
+    for(int i=0; i<arr.size(); i++){
+        prefixsum+=arr[i];
+
+        if(prefixsum==k){
+            maxlen = max(maxlen, i+1);
+        }
+
+        int rem = prefixsum-k;
+        // if element is not found in hashmap it returns an iterator at end
+        if(hashmap.find(rem) != hashmap.end()){
+            int len = i - hashmap[rem];
+            maxlen = max(len, maxlen);
+        }
+        
+        hashmap[prefixsum] = i;
+    }
+    return maxlen;
+}
+
+// LONGEST SUBARRAY WITH SUM K (optimal)  |  TC - O(2n)  |  SC - O(1)
+int longestSubarrayPositive0(vector<int> arr, int k){
+    int sum = 0;
+    int maxlen = 0;
+
+    int j =0;
+    for(int i=0; i<arr.size(); i++){
+        sum += arr[i];
+
+        while(sum>k){
+            sum -= arr[j];
+            j++;
+        }
+        if(sum==k){
+            maxlen = max(i-j+1, maxlen);
+        }
+    }
+    return maxlen;
+}
+
+
+
+
+int main(){
+    vector<int> arr = {2,5,1,0,4,2,0,0,0,1,3,9,3,2,4,1};
+
+    cout << longestSubarrayNegative(arr, 7);
     return 0;
 }
