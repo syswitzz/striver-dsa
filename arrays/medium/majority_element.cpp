@@ -17,7 +17,7 @@ int majorityElement(vector<int> arr){
     return 0;
 }
 
-// MAJORITY ELEMENT (>N/2) (optimal) |  O(nlogn + n)  |  O(n)
+// MAJORITY ELEMENT (>N/2) (optimal) |  O(n+ n)  |  O(1)
 // MOOSE'S VOTING ALGORITHM
 int majorityElementOptimal(vector<int> arr){
     int element;
