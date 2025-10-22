@@ -36,9 +36,7 @@ vector<int> twosumHashmap(vector<int> arr, int number){
 
 // TWO SUM PROBLEM USING GREEDY ALGO (optimal) |  O(nlogn + n)  |  O(1)
 int twosumGreedy(vector<int> arr, int number){
-
     sort(arr.begin(), arr.end());  //nlogn
-
     int i=0, j=arr.size()-1;
 
     while(i<j){
