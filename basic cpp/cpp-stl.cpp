@@ -233,7 +233,7 @@ void sets(){
 }
 
 
-// MULTISET
+// MULTISET  |  log(N)
 // sorted but not unique
 void multisets(){
     multiset<int> mst;
@@ -313,7 +313,7 @@ bool comparator(pair<int, int> p1, pair<int, int> p2){
 void algorithms(){
      pair<int, int> pr[3] = {{7,1}, {4, 0}, {2, 0}};
 
-    // SORTING
+    // SORTING   // O(nlogn) in all cases
     //sort(a, a+n)
     //sort(v.begin(), v.end())
 
