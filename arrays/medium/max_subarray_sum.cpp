@@ -42,12 +42,36 @@ int subarrSum3(vector<int> arr){
     return max_ele;
 }
 
+// PRINT MAXIMUM SUM OF SUBARRAY EMPTY SET ALLOWED (optimal)  |  O(n)  |  O(1)
+vector<int> subarrSumPrint(vector<int> arr){
+    int max_ele = 0;
+    int sum = 0;
+    int start =-1; int end=-1;
+    vector<int> sumarr;
+
+    for(int i=0; i<arr.size(); i++){
+        sum+=arr[i];
+
+        if(sum==0){
+            start = i;
+        }
+        else if(sum<0){
+            sum = 0;
+        }
+        else{
+            max_ele -= max(max_ele, sum);
+            end = i;
+        }
+    }
+    for(int i=start; i<=end; i++) sumarr.push_back(arr[i]);
+    return sumarr;
+}
 
 
 int main(){
-    vector<int> arr = {-3, -5, -4, -2};
-    int sum = subarrSum2(arr);
+    vector<int> arr = {-3, -5, -4, -2, 7};
+    vector<int> sum = subarrSumPrint(arr);
 
-    cout << sum;
+    for(auto it: sum) cout << it;
     return 0;
 }
