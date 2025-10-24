@@ -47,7 +47,7 @@ int uniqueElement(vector<int> arr){
     return i+1;
 }
 
-
+// LEFT ROTATE BY 1  |  TC - O(n)  |  SC - O(1)
 void rotateElementby1(vector<int> &arr){
     for(int i=0; i<=arr.size()-2; i++){
         swap(arr[i], arr[i+1]);
