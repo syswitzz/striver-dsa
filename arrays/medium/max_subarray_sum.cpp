@@ -46,30 +46,36 @@ int subarrSum3(vector<int> arr){
 vector<int> subarrSumPrint(vector<int> arr){
     int max_ele = 0;
     int sum = 0;
-    int start =-1; int end=-1;
-    vector<int> sumarr;
+    int start=-1; int end=-1;
+    int temp_start=0;
 
     for(int i=0; i<arr.size(); i++){
         sum+=arr[i];
 
-        if(sum==0){
-            start = i;
+        if(sum<0){
+            sum =0;
+            temp_start = i+1;
         }
-        else if(sum<0){
-            sum = 0;
-        }
-        else{
-            max_ele -= max(max_ele, sum);
+
+        else if(sum>max_ele){
+            max_ele = sum;
+            start = temp_start;
             end = i;
         }
     }
-    for(int i=start; i<=end; i++) sumarr.push_back(arr[i]);
-    return sumarr;
+
+    vector<int> result;
+    if(start==-1) return result;
+    else{
+        for(int j=start; j<=end; j++) result.push_back(arr[j]);
+    }
+
+    return result;
 }
 
 
 int main(){
-    vector<int> arr = {-3, -5, -4, -2, 7};
+    vector<int> arr = {-3, -5,7, -4, -2, 7};
     vector<int> sum = subarrSumPrint(arr);
 
     for(auto it: sum) cout << it;
