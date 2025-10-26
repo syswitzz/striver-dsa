@@ -311,7 +311,7 @@ bool comparator(pair<int, int> p1, pair<int, int> p2){
 
 // ALGORITHMS
 void algorithms(){
-     pair<int, int> pr[3] = {{7,1}, {4, 0}, {2, 0}};
+    pair<int, int> pr[3] = {{7,1}, {4, 0}, {2, 0}};
 
     // SORTING   // O(nlogn) in all cases
     //sort(a, a+n)
@@ -335,5 +335,5 @@ void algorithms(){
 
     do {
         cout << s << endl;
-    } while (next_permutation(s.begin(), s.end()));
+    } while (next_permutation(s.begin(), s.end()));    // next_permutaion(arr.begin(), arr.end())
 }
