@@ -1,7 +1,6 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
-
 using namespace std;
 
 
@@ -31,7 +30,6 @@ vector<int> nextPermutation(vector<int> arr){
     reverse(arr.begin()+dip_index+1, arr.end());
     return arr;
 }
-
 
 
 
