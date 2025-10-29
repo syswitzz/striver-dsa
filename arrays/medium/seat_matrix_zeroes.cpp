@@ -69,7 +69,7 @@ void seatMatrixBetter(vector<vector<int>> &matrix){
 
 
 // SEAT MATRIX ZEROES (optimal)  |  TC - O(2mn) where m=rows, n=columns  |  SC - O(1)
-void seatMatrixBetter(vector<vector<int>> &matrix){
+void seatMatrixOptimal(vector<vector<int>> &matrix){
     int rows = matrix.size();
     int columns = matrix[0].size();
     int temp = 1;
@@ -90,14 +90,15 @@ void seatMatrixBetter(vector<vector<int>> &matrix){
             }
         }
     }
-    if(temp==0){
-        for (int m= 0; m < rows; m++){
-            matrix[m][0] = 0;
-        }
-    }
+    // Check first ROW before zeroing first COLUMN
     if(matrix[0][0]==0){
         for(int n =0; n< columns; n++){
             matrix[0][n] = 0;
+        }
+    }
+    if(temp==0){
+        for (int m= 0; m < rows; m++){
+            matrix[m][0] = 0;
         }
     }
 }
