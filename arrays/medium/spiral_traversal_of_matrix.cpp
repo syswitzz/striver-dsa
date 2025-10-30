@@ -35,6 +35,45 @@ vector<vector<int>> spiralTraversal(int n){
 }
 
 
+// SPIRAL ORDER TRAVERSAL OF MATRIX  |  O(n^2)  |  O(n^2) for answer O(1) for solving
+// This function returns the elements of the matrix in spiral order.
+vector<int> spiralOrder(vector<vector<int>>& matrix) {
+    int rows = matrix.size();
+    int cols = matrix[0].size();
+
+    if(rows==0 || cols==0) return {};
+
+    int top = 0; int left = 0;
+    int bottom = rows-1; int right = cols-1;
+
+    vector<int> ans;
+    ans.reserve(rows*cols);
+
+    while(top<=bottom && left<=right){
+        for(int i=left; i<=right; i++){
+            ans.push_back(matrix[top][i]);
+        }
+        top++;
+        for(int i=top; i<=bottom; i++){
+            ans.push_back(matrix[i][right]);
+        }
+        right--;
+        if(top<=bottom){
+            for(int i=right; i>=left; i--){
+                ans.push_back(matrix[bottom][i]);
+            }
+        }
+        bottom--;
+        if(left<=right){
+            for(int i=bottom; i>=top; i--){
+                ans.push_back(matrix[i][left]);
+            }
+        }
+        left++;
+    }
+    return ans;
+}
+
 int main(){
     int n = 5;
     vector<vector<int>> arr;

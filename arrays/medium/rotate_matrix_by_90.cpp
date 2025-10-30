@@ -19,10 +19,10 @@ void rotateMatrixBrute(vector<vector<int>> &matrix){
 }
 
 
-// ROTATE MATRIX BY 90 DEGREE (better) |  TC - O(mn/2+m/2)  |  SC - O(1)
+// ROTATE MATRIX BY 90 DEGREE (optimal) |  TC - O(mn/2+mm/2) -> O(mn)  |  SC - O(1)
 // only for square matrix
 // This approach uses the concept of transposing the matrix and then reversing each row.
-void rotateMatrixBrute(vector<vector<int>> &matrix){
+void rotateMatrixOptimal(vector<vector<int>> &matrix){
     // transpose the matrix
     int rows = matrix.size();
     int columns = matrix[0].size();
@@ -32,7 +32,7 @@ void rotateMatrixBrute(vector<vector<int>> &matrix){
             swap(matrix[m][n], matrix[n][m]);
         }
     }
-    // reverse the matrix  |  O(m/2)
+    // reverse the matrix  |  O(mm/2)
     for(int m=0; m<rows; m++){
         reverse(matrix[m].begin(), matrix[m].end());
     }
