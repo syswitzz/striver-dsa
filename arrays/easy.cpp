@@ -293,7 +293,7 @@ int onceNumberXOR(vector<int> arr){
 
 
 // SUBARRAY - contigious part of array
-// LONGEST SUBARRAY WITH SUM K (brute)  |  TC - O(n^2)  |  SC - O(n)
+// LONGEST SUBARRAY WITH SUM K (brute)  |  TC - O(n^2)  |  SC - O(0)
 int longestSubarrayBrute(vector<int> arr, int k){
     int maxlen =0;
     for(int i=0; i<arr.size(); i++){
