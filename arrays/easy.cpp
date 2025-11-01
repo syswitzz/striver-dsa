@@ -1,6 +1,4 @@
 #include<bits/stdc++.h>
-#include<iostream>
-#include <algorithm>  //for max function
 using namespace std;
 
 int sLargest(vector<int> arr){
